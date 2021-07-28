@@ -67,8 +67,13 @@ function createIOUTransaction(params) {
     Onyx.merge(ONYXKEYS.IOU, {loading: true, creatingIOUTransaction: true, error: false});
     API.CreateIOUTransaction(params)
         .then((data) => {
-            getIOUReportsForNewTransaction([data]);
-            Navigation.navigate(ROUTES.getReportRoute(data.chatReportID));
+            if (data.jsonCode === 200) {
+                getIOUReportsForNewTransaction([data]);
+                Navigation.navigate(ROUTES.getReportRoute(data.chatReportID));
+            } else {
+                Growl.error(data.message);
+                Onyx.merge(ONYXKEYS.IOU, {loading: false, creatingIOUTransaction: false, error: true});
+            }
         });
 }
 
@@ -96,12 +101,6 @@ function createIOUSplit(params) {
             });
         })
         .then((data) => {
-            // This data needs to go from this:
-            // {reportIDList: [1, 2], chatReportIDList: [3, 4]}
-            // to this:
-            // [{reportID: 1, chatReportID: 3}, {reportID: 2, chatReportID: 4}]
-            // in order for getIOUReportsForNewTransaction to know which IOU reports are associated with which
-            // chat reports
             const reportParams = [];
             for (let i = 0; i < data.reportIDList.length; i++) {
                 reportParams.push({
