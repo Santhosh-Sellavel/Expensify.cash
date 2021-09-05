@@ -87,7 +87,6 @@ const CONST = {
         PAY_WITH_EXPENSIFY: 'payWithExpensify',
         FREE_PLAN: 'freePlan',
         DEFAULT_ROOMS: 'defaultRooms',
-        INTERNATIONALIZATION: 'internationalization',
     },
     BUTTON_STATES: {
         DEFAULT: 'default',
@@ -198,6 +197,7 @@ const CONST = {
     TIMING: {
         SEARCH_RENDER: 'search_render',
         HOMEPAGE_INITIAL_RENDER: 'homepage_initial_render',
+        REPORT_INITIAL_RENDER: 'report_initial_render',
         HOMEPAGE_REPORTS_LOADED: 'homepage_reports_loaded',
         SWITCH_REPORT: 'switch_report',
         SIDEBAR_LOADED: 'sidebar_loaded',
@@ -255,7 +255,7 @@ const CONST = {
         IMAGE: 'image',
     },
 
-    EMOJI_PICKER_SIZE: 392,
+    EMOJI_PICKER_SIZE: 320,
     NON_NATIVE_EMOJI_PICKER_LIST_HEIGHT: 300,
     EMOJI_PICKER_ITEM_HEIGHT: 40,
     EMOJI_PICKER_HEADER_HEIGHT: 38,
@@ -266,6 +266,13 @@ const CONST = {
         CHRONOS: 'chronos@expensify.com',
         CONCIERGE: 'concierge@expensify.com',
         RECEIPTS: 'receipts@expensify.com',
+        HELP: 'help@expensify.com',
+        QA: 'qa@expensify.com',
+        CONTRIBUTORS: 'contributors@expensify.com',
+        FIRST_RESPONDER: 'firstresponders@expensify.com',
+        QA_TRAVIS: 'qa+travisreceipts@expensify.com',
+        BILLS: 'bills@expensify.com',
+        STUDENT_AMBASSADOR: 'studentambassadors@expensify.com',
     },
 
     ENVIRONMENT: {
@@ -333,6 +340,16 @@ const CONST = {
         NATIVE: 'Native',
     },
 
+    BROWSER: {
+        CHROME: 'chrome',
+        FIREFOX: 'firefox',
+        IE: 'ie',
+        EDGE: 'edge',
+        Opera: 'opera',
+        SAFARI: 'safari',
+        OTHER: 'other',
+    },
+
     IOU: {
         // Note: These payment types are used when building IOU reportAction message values in the server and should
         // not be changed.
@@ -390,4 +407,13 @@ const CONST = {
     },
 };
 
+const EXPENSIFY_EMAILS = [
+    CONST.EMAIL.CONCIERGE, CONST.EMAIL.CONTRIBUTORS, CONST.EMAIL.FIRST_RESPONDER,
+    CONST.EMAIL.HELP, CONST.EMAIL.QA, CONST.EMAIL.CHRONOS, CONST.EMAIL.RECEIPTS,
+    CONST.EMAIL.BILLS, CONST.EMAIL.STUDENT_AMBASSADOR, CONST.EMAIL.QA_TRAVIS,
+];
+
+export {
+    EXPENSIFY_EMAILS,
+};
 export default CONST;
